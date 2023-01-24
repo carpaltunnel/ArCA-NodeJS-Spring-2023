@@ -24,7 +24,7 @@ These VSCode extensions may make development easier :
 
 
 ### **MongoDB**
-MongoDB v4.4 or newer will be used for this course.  The latest LTS version as of this updated is v6.  The Community version is free and can be found on the [MongoDB Download Page](https://www.mongodb.com/try/download/community).  [Robo3T](https://robomongo.org/download) is a lightweight client that can be used to query MongoDB.
+MongoDB v4.4 or newer will be used for this course.  The latest LTS version as of this update is v6.  The Community version is free and can be found on the [MongoDB Download Page](https://www.mongodb.com/try/download/community).  [Robo3T](https://robomongo.org/download) is a lightweight client that can be used to query MongoDB.
 
 ### **Git**
 Source control will be managed by [Git](https://git-scm.com/) and references will be provided on [Github](https://github.com/carpaltunnel/ArCA-NodeJS-Spring-2023). All required git functionality can be completed using only the command line but GUIs such as [GitKraken](https://www.gitkraken.com/), [SourceTree](https://www.sourcetreeapp.com/), [GitHub Desktop](https://desktop.github.com/) and others are available.  They are no required since Git functionality is built into VS Code and we will mostly use this.
