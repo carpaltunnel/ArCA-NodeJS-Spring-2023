@@ -1,3 +1,9 @@
+# VS Code settings
+.vscode
+.metals
+
+.idea
+
 # Logs
 logs
 *.log
