@@ -40,8 +40,4 @@ After installing MongoDB, create an easily accessible folder named `mongodb-data
 
 
 ## Supporting Services
-Github
-
-## IDE Configuration
-GitIgnore
-EditorConfig
+You will need a (free) [Github](https://github.com) account to complete this course.
