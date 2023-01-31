@@ -1,0 +1,44 @@
+When should you use "var" to declare a variable?
+  Always
+  Never
+  When the project is using "var" elsewhere
+
+Which of the following is an invalid variable name?
+  $car
+  CARS
+  car7
+  3caR
+  
+
+
+Which of these is not a built-in Javscript type?
+  String
+  Number
+  Object
+  BigNumber
+  null
+
+T/F : Variables declared with "let" can be reassigned
+
+T/F : "variableName" and "VariableName" are the same name for a single variable.
+
+T/F : Variables declared with "const" can be reassigned
+
+
+
+
+--
+Type conversion questions
+
+Which of these convert to Boolean "false":
+
+What would be the result of "Number('7')"
+
+Which of these would return "NaN"?
+  Number('7')
+  Number('      7     ')
+  Number('seven')
+  Number(4 + 3)
+
+???
+Enter the result of the following statement : "typeof Array1"
