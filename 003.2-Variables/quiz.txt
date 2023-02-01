@@ -1,9 +1,0 @@
-When should you use "var"?
-Question on null vs undefined
-
-Where do hoisted "var"s move to at execution time?
-
-T/F : Variables declared with "const" may be modified
-T/F : Variables declared with "const" may be reassigned
-
-Questions about type conversion
