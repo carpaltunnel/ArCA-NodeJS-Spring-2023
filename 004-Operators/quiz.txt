@@ -1,0 +1,10 @@
+Use "==" vs "==="
+
+Tricky question on what happens on implicit == type conversion
+
+Identify this operator
+  .... do this for three or four.
+
+"typeof" question
+
+less than or greater than true/false question
