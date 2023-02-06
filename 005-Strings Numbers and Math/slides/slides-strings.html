@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Slides</title>
+
+    <!-- This file contains common styles for example presentations. -->
+    <link href="../../resources/impress.js/css/impress-common.css" rel="stylesheet" />   
+    <!--
+        This file contains styles specific for this example presentation. 
+    -->
+    <link href="../../resources/impress.js/css/classic-slides.css" rel="stylesheet" />
+    
+</head>
+
+<body class="impress-not-supported">
+<!--
+    This fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    This is the core element used by impress.js: the wrapper for your presentation steps. 
+    In this element all the impress.js magic happens.
+    
+    data-transition-duration sets the time in microseconds that is used for the
+    animation when transtitioning between slides.
+    
+    The width, height, scale and perspective options define a target screen size that you should
+    design your CSS against. impress.js will automatically scale all content to different screen
+    sizes. See DOCUMENTATION.md for details. Below, I have targeted full HD screen resolution.
+    
+    data-autoplay can be used to set the time in seconds, after which presentation
+    automatically moves to next slide. It can also be set individually for each
+    slide, but here we just set a common duration for all slides.
+-->
+<div id="impress"
+    data-transition-duration="1000"
+
+    data-width="1920"
+    data-height="1080"
+    data-max-scale="3"
+    data-min-scale="0"
+    data-perspective="1000"
+>
+
+    <!--
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+        
+        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+        This step is auto-assigned the id "step-1". You can also use `#step-1` in a link, to 
+        point directly to this particular step.
+        
+        Positioning information is passed through data-* attributes.
+        
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'. It will not 
+        be rotated or scaled.
+        
+        The "step" class is what *must* be used for every "slide". In this example we also use the "slide"
+        class, which adds a rectangle with some background and makes this presentation look like a traditional
+        powerpoint slide show. The "slide" class is entirely optional and indeed you wouldn't use it for
+        your cooler impress.js presentations.
+    -->
+    <div id="title" class="step slide title" data-x="-2200" data-y="-3000">
+        <h1>Strings</h1>
+        <br /><br /><br />
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="string1" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h2>Template Literals (Template Strings / String Interpolation)</h2>
+        <br /><br />
+        <pre><code class="javascript">
+console.log(`1 + 1 = ${1 + 1}`); // 1 + 1 = 2
+
+const theAnswer = 2;
+console.log(`The answer to 1 + 1 is : ${theAnswer}`); // The answer to 1 + 1 is : 2
+
+const name = 'user';
+console.log(`Hello ${name}, the answer to 1 + 1 is ${theAnswer}, and 2 * 3 = ${2 * 3}`); // Hello user, the answer to 1 + 1 is 2, and 2 * 3 = 6
+        </code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="string2-index" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>length, indexOf(), lastIndexOf()</h1>
+        <br /><br />
+
+        <pre><code class="javascript">
+const myString = 'a regular string!';
+console.log(myString.length); // 17
+console.log(myString.indexOf('r')); // 2
+console.log(myString.lastIndexOf('r')); // 12
+console.log(myString.indexOf('lar')); // 6
+console.log(myString.lastIndexOf('lar')); // 6
+        </code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="string3-case" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>toLowerCase(), toUpperCase()</h1>
+        <br />
+
+        <pre><code class="javascript">
+const myString = 'The quick Red Fox...';
+console.log(myString.toLowerCase()); // the quick red fox...
+console.log(myString.toLocaleLowerCase()); // the quick red fox...
+console.log(myString.toUpperCase()); // THE QUICK RED FOX...
+console.log(myString.toLocaleUpperCase()); // THE QUICK RED FOX...
+        </code></pre>
+        <br />
+        The "Locale" versions convert based on the locale and therefore may perform differently based on the language or detected/set locale.
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="string-substr" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h2>substr(), substring(), slice()</h2>
+        <p>substr(start, length) can be considered legacy.  substring(start, end) is most common.  slice(start, end) is a bit uncommon but combines the best of both.</p>
+        <pre><code class="javascript">const myString = 'The quick Red Fox...';
+console.log(myString.substr(4, 5)); // quick
+console.log(myString.substr(-6, 6)); // Fox...
+
+console.log(myString.substring(4, 5)); // q
+console.log(myString.substring(-6, 6)); // The qu
+console.log(myString.substring(4)); // quick Red Fox...
+
+console.log(myString.slice(4, 5)); // q
+console.log(myString.slice(-6, -1)); // Fox..
+console.log(myString.slice(4)); // quick Red Fox...
+console.log(myString.slice(-6)); // Fox...
+        </code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="string-split-trim" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>split(), trim()</h1>
+        <p>split() will split a string based on the supplied input and return an array.  trim() will remove white space from the beginning and end of a string.</p>
+
+        <pre><code class="javascript">const myString = 'The quick Red Fox...';
+console.log(myString.split(' ')); // [ "The", "quick", "Red", "Fox..." ]
+
+const fruit = 'Apples || oranges || bananas';
+console.log(fruit.split('||'));  // [ "Apples ", " oranges ", " bananas" ]
+
+const paddedString = '      whitespace padded string      ';
+console.log(paddedString.trim()) // whitespace padded string
+        </code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="string-includes" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>includes(), match(), search(), test()</h1>
+        <p>includes(str) returns true if the string contains str.  search(), match(), and test() have similar purposes but accept regular expressions.  We'll revisit these methods in the regular expression lesson.</p>
+        <pre><code class="javascript">const myString = 'The quick Red Fox...';
+console.log(myString.includes('red')); // false
+console.log(myString.includes('Red')); // true
+        </code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+
+    <div id="string-replace" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>replace(), replaceAll()</h1>
+        <p>replace(str, newStr) and replaceAll(str, newStr) will replace the specified str in the given string, returning a new string.  replace() replaces the first instance found, replaceAll() replaces ... all</p>
+        <pre><code class="javascript">const myString = 'The qqquick Red qqqFox...';
+console.log(myString.replace('qqq', 'q')); // The quick Red qqqFox...
+console.log(myString.replaceAll('qqq', '')); // The uick Red Fox...
+    </code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="string-start-end" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>charAt(idx), startsWith(str, [length]), endsWith(str, [length])</h1>
+        <p>These are helpful for finding characters or strings at certain places in the string.  They are effectively shortcuts for substring() or slice()</p>
+        <pre><code class="javascript">const myString = 'the lazy brown dog';
+console.log(myString.charAt(6)); // z
+console.log(myString.startsWith('the')); // true
+console.log(myString.startsWith('lazy')); // false
+console.log(myString.startsWith('lazy', 4)); // true
+console.log(myString.endsWith('dog')); // true
+console.log(myString.endsWith('lazy')); // false
+console.log(myString.endsWith('lazy', 8)); // true</code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1></h1>
+
+        <div class="notes">
+        </div>
+    </div>
+
+
+
+    <!-- This last, empty "slide" is set to be very large using the data-scale attribute, 
+         so that it covers all the other slides you just saw. 
+         It's a common way of zooming out at the end, to show the whole presentation.
+         In CSS, we set pointer-events:none to make this slide non-clickable. 
+         It makes a difference at least for SVG content, such as the mermaid diagram. -->
+    <div id="overview" class="step" data-x="4500" data-y="1500" data-scale="10" style="pointer-events: none;">
+    </div>
+</div>
+
+<!--
+    Add navigation-ui controls: back, forward and a select list.
+    Add a progress indicator bar (current step / all steps)
+    Add the help popup plugin
+-->
+<div id="impress-toolbar"></div>
+
+<div class="impress-progressbar"><div></div></div>
+<div class="impress-progress"></div>
+
+<div id="impress-help"></div>
+
+<!-- Extra modules
+     Load highlight.js, mermaid.js, markdown.js and MathJax.js from extras.
+     If you're curious about details, these are initialized in src/plugins/extras/extras.js 
+<script type="text/javascript" src="../../resources/impress.js/extras/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mermaid/mermaid.min.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/markdown/markdown.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+-->
+<link rel="stylesheet" href="../../resources/highlight.js/styles/darcula.css">
+<script type="text/javascript" src="../../resources/highlight.js/highlight.pack.js"></script>
+
+<!--
+    To make all described above really work, you need to include impress.js in the page.
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. 
+-->
+<script type="text/javascript" src="../../resources/impress.js/js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
