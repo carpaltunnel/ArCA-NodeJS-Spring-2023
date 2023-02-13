@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Slides</title>
+
+    <!-- This file contains common styles for example presentations. -->
+    <link href="../../resources/impress.js/css/impress-common.css" rel="stylesheet" />   
+    <!--
+        This file contains styles specific for this example presentation. 
+    -->
+    <link href="../../resources/impress.js/css/classic-slides.css" rel="stylesheet" />
+    
+</head>
+
+<body class="impress-not-supported">
+<!--
+    This fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    This is the core element used by impress.js: the wrapper for your presentation steps. 
+    In this element all the impress.js magic happens.
+    
+    data-transition-duration sets the time in microseconds that is used for the
+    animation when transtitioning between slides.
+    
+    The width, height, scale and perspective options define a target screen size that you should
+    design your CSS against. impress.js will automatically scale all content to different screen
+    sizes. See DOCUMENTATION.md for details. Below, I have targeted full HD screen resolution.
+    
+    data-autoplay can be used to set the time in seconds, after which presentation
+    automatically moves to next slide. It can also be set individually for each
+    slide, but here we just set a common duration for all slides.
+-->
+<div id="impress"
+    data-transition-duration="1000"
+
+    data-width="1920"
+    data-height="1080"
+    data-max-scale="3"
+    data-min-scale="0"
+    data-perspective="1000"
+>
+
+    <!--
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+        
+        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+        This step is auto-assigned the id "step-1". You can also use `#step-1` in a link, to 
+        point directly to this particular step.
+        
+        Positioning information is passed through data-* attributes.
+        
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'. It will not 
+        be rotated or scaled.
+        
+        The "step" class is what *must* be used for every "slide". In this example we also use the "slide"
+        class, which adds a rectangle with some background and makes this presentation look like a traditional
+        powerpoint slide show. The "slide" class is entirely optional and indeed you wouldn't use it for
+        your cooler impress.js presentations.
+    -->
+    <div id="title" class="step slide title" data-x="-2200" data-y="-3000">
+        <h1>Arrays</h1>
+        <br /><br />
+        <p>Arrays allow us to create list-like objects of variables of any type.  Arrays are zero indexed so the first item in an array is index 0</p>
+        <br />
+        <p><strong>Note that the language does not enforce a type for items in the array.</strong> While generally a bad practice, it is possible to have a single array that contains strings, numbers, objects, and even other arrays.</p>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="instantiation" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Array Instantiation</h1>
+        Arrays are declared similarly to other variables but members are wrapped in square brackets and assigned comma delimited if created at the time of declaration.
+        <pre><code class="javascript">const fruit = [
+    'apple',
+    'orange',
+    'kiwi',
+];
+
+const numbers = [
+   0,
+   1,
+   2,
+];</code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="array-access" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h2>Array Access</h2>
+        <p>Array members can be accessed and changed by their index number with bracket notation.  Keep in mind that Arrays are zero indexed. The <code>length</code> returns the number of items.</p>
+        <pre><code class="javascript">const fruit = [
+    'apple',
+    'orange',
+    'kiwi'
+];
+fruit.length; // 3
+fruit[0]; // apple
+fruit[2]; // kiwi
+
+fruit[2] = 'cantaloupe';
+fruit[2]; // cantaloupe</code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="static-methods" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Array Static Methods</h1>
+        <p>The most important static method to know for now is <code>Array.isArray()</code>.  This allows you test an unknown or uncertain variable to determine if it is an array.</p>
+        <pre><code class="javascript">const fruit = [
+    'apple',
+    'orange',
+    'kiwi'
+];
+
+const cars = 'are transportation';
+Array.isArray(fruit); // true
+Array.isArray(cars); // false
+</code></pre>
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="adding-removing" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Modifying Arrays</h1>
+        <p>The most common methods for adding and removing items from an array are <code>push(), pop(), shift(), and unshift()</code></p>
+        <ol>
+            <li><code>arr.push(val)</code> - Add (push) val to end of the arr and return new length.</li>
+            <li><code>arr.pop()</code> - Remove (pop) and return the last element of arr.</li>
+            <li><code>arr.unshift(val)</code> - Add (unshift) val to the beginning of arr and return new length.</li>
+            <li><code>arr.shift()</code> - Remove (shift) and return the first element of arr.</li>
+            <li><code>arr.splice(idx, deleteCount, newItem)</code> - Add or delete items of arr at index.</li>
+        </ol>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="adding-removing-examples" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Modifying Arrays - Example</h1>
+        <pre><code class="javascript">const fruit = ['apple'];
+fruit.push('orange'); // 2, fruit = [apple, orange]
+fruit.unshift('mango'); // 3, fruit = [mango, apple, orange]
+fruit.length; // 3
+
+const lastElement = fruit.pop(); // 'orange', fruit = [mango, apple]
+console.log(`fruit no longer contains ${lastElement}`);
+
+const firstElement = fruit.shift(); // 'mango', fruit = [apple]
+console.log(`fruit no longer contains ${firstElement}`);
+fruit.length; // 1
+
+fruit.pop(); // 'apple', fruit is now an empty array
+fruit.pop(); // undefined
+fruit.length; // 0
+</code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="iterating" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Iterating Arrays</h1>
+        <pre><code class="javascript">const fruits = ['apple', 'orange', 'kiwi'];
+
+fruits.forEach((fruit) => {
+    console.log(`Fruit value is : ${fruit}`);
+});
+
+for (const idx in fruits) {
+    console.log(`Fruit value is : ${fruits[idx]}`);
+}
+
+for (const fruit of fruits) {
+    console.log(`Fruit value is : ${fruit}`);
+}</code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="filter" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Filtering Arrays</h1>
+      
+        <pre><code class="javascript">const fruits = [ 'apple', 'orange', 'kiwi', 'apricot' ];
+const fruitsThatStartWithA = fruits.filter((fruit) => {
+    if (fruit.slice(0, 1) === 'a') {
+        return true;
+    }
+});
+
+// Shorthand way of doing the same thing :
+const fruitsThatStartWithA2 = fruits.filter(fruit => (fruit.slice(0, 1) === 'a'));</code></pre>
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="conditionals" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Evaluating Array Contents</h1>
+        <p><code>.includes(), .some(), .every()</code> let us test the contents of an Array and return a Boolean.</p><br />
+        <pre><code class="javascript">const fruits = ['apple', 'orange', 'kiwi'];
+
+const includesKiwi = fruits.includes('kiwi');
+const someContainA = fruits.some(fruit => (fruit.indexOf('a') > -1));
+const allContainA = fruits.every(fruit => (fruit.indexOf('a') > -1));</code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="searching" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Searching Arrays</h1>
+        <p><code>.indexOf(), .lastIndexOf(), .find(), .findIndex()</code> search an array.</p><br />
+        <pre><code class="javascript">const fruits = ['apple', 'orange', 'kiwi', 'apple'];
+const appleFirstIndex = fruits.indexOf('apple');
+const appleLastIndex = fruits.lastIndexOf('apple');
+const aFruit = fruits.find(fruit => (fruit.indexOf('a') > -1));
+const aFruitIndex = fruits.findIndex(fruit => (fruit.indexOf('a') > -1));
+</code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="sorting" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Sorting</h1>
+        <p><code>.sort()</code> will <strong>in place</strong> sort an Array by default implicit String conversion or by a supplied function.</p><br />
+        <pre><code class="javascript">const fruits = ['apple', 'orange', 'kiwi', 'apricot'];
+
+fruits.sort(); // default alpha sort
+fruits.sort((a, b) => a.length > b.length ? 1 : -1); // length sort
+</code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="destructuring" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Array Destructuring and Rest</h1>
+        <p>Arrays can be "destructured" for assignment and the <code>...</code> rest operator can be used for leftovers</p><br />
+        <pre><code class="javascript">const fruits = [
+    'apple', 
+    'orange', 
+    'kiwi', 
+    'apricot'
+];
+
+const [fruit1, fruit2, ...others] = fruits;</code></pre>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="lab" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h2>Lab 003</h2>
+        <p>Lab 003 is available in Blackboard.  A starting template with data prepopulated is provided.  Start with the template and implement the following logic :</p>
+        <ol>
+            <li>Group vehicles by Make</li>
+            <li>Sort grouped vehicles by Year (ascending)</li>
+            <li>Add the "reason" field from the recallList to each vehicle object as a new field named "recallReason" where vehicle.vin = recallList.vin</li>
+            <li>If the vehicle.vin exists in salvageVINs, add a new field named "salvaged" with value Boolean "true" to the vehicle object.</li>
+            <li>Output all vehicles to the console, grouped by make, ordered by year, with the new fields included.</li>
+        </ol>
+
+        <div class="notes">
+        </div>
+    </div>
+
+
+    <!-- This last, empty "slide" is set to be very large using the data-scale attribute, 
+         so that it covers all the other slides you just saw. 
+         It's a common way of zooming out at the end, to show the whole presentation.
+         In CSS, we set pointer-events:none to make this slide non-clickable. 
+         It makes a difference at least for SVG content, such as the mermaid diagram. -->
+    <div id="overview" class="step" data-x="4500" data-y="1500" data-scale="10" style="pointer-events: none;">
+    </div>
+</div>
+
+<!--
+    Add navigation-ui controls: back, forward and a select list.
+    Add a progress indicator bar (current step / all steps)
+    Add the help popup plugin
+-->
+<div id="impress-toolbar"></div>
+
+<div class="impress-progressbar"><div></div></div>
+<div class="impress-progress"></div>
+
+<div id="impress-help"></div>
+
+<!-- Extra modules
+     Load highlight.js, mermaid.js, markdown.js and MathJax.js from extras.
+     If you're curious about details, these are initialized in src/plugins/extras/extras.js 
+<script type="text/javascript" src="../../resources/impress.js/extras/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mermaid/mermaid.min.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/markdown/markdown.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+-->
+<link rel="stylesheet" href="../../resources/highlight.js/styles/darcula.css">
+<script type="text/javascript" src="../../resources/highlight.js/highlight.pack.js"></script>
+
+<!--
+    To make all described above really work, you need to include impress.js in the page.
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. 
+-->
+<script type="text/javascript" src="../../resources/impress.js/js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
