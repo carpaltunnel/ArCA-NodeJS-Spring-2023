@@ -1,14 +1,6 @@
 # Lab 003 - Vehicle Data (Arrays, Loops, and Conditionals)
 In this lab you're going to take predefined data in multiple arrays and apply multiple operations we've covered to join the data together.  Once the logic is complete you will output the results in an easy to read format.
 
-## OPTIONAL SPLIT
-Split the following functionality into multiple smaller projects :
-1. Sort by year
-2. Remove salvages
-3. Add recall reason to vehicles
-4. Group by make
-5. Statistics
-
 ## Important Note
 There are many ways to solve this problem.  As an exercise in how people approach problems differently, you will be presenting your solution to the class in the next class that follows the assignment deadline.
 
