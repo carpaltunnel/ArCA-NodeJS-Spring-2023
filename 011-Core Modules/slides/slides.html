@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Slides</title>
+
+    <!-- This file contains common styles for example presentations. -->
+    <link href="../../resources/impress.js/css/impress-common.css" rel="stylesheet" />   
+    <!--
+        This file contains styles specific for this example presentation. 
+    -->
+    <link href="../../resources/impress.js/css/classic-slides.css" rel="stylesheet" />
+    
+</head>
+
+<body class="impress-not-supported">
+<!--
+    This fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    This is the core element used by impress.js: the wrapper for your presentation steps. 
+    In this element all the impress.js magic happens.
+    
+    data-transition-duration sets the time in microseconds that is used for the
+    animation when transtitioning between slides.
+    
+    The width, height, scale and perspective options define a target screen size that you should
+    design your CSS against. impress.js will automatically scale all content to different screen
+    sizes. See DOCUMENTATION.md for details. Below, I have targeted full HD screen resolution.
+    
+    data-autoplay can be used to set the time in seconds, after which presentation
+    automatically moves to next slide. It can also be set individually for each
+    slide, but here we just set a common duration for all slides.
+-->
+<div id="impress"
+    data-transition-duration="1000"
+
+    data-width="1920"
+    data-height="1080"
+    data-max-scale="3"
+    data-min-scale="0"
+    data-perspective="1000"
+>
+
+    <!--
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+        
+        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+        This step is auto-assigned the id "step-1". You can also use `#step-1` in a link, to 
+        point directly to this particular step.
+        
+        Positioning information is passed through data-* attributes.
+        
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'. It will not 
+        be rotated or scaled.
+        
+        The "step" class is what *must* be used for every "slide". In this example we also use the "slide"
+        class, which adds a rectangle with some background and makes this presentation look like a traditional
+        powerpoint slide show. The "slide" class is entirely optional and indeed you wouldn't use it for
+        your cooler impress.js presentations.
+    -->
+    <div id="title" class="step slide title" data-x="-2200" data-y="-3000">
+        <h1>Core Modules</h1>
+        <br /><br /><br /><br />
+        <p>Let's start exploring the <a href="https://nodejs.org/docs/latest-v14.x/api/all.html">core modules</a> that are bundled with Node.js</p>
+        <br />
+        <p><strong>NOTE:</strong> These examples are no longer executable in your browser javascript console since it lacks the Node.js engine and therefore the core modules.</p>
+        
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="require" class="step slide" data-rel-x="2200" data-rel-y="0">
+      <h1>require('module-name')</h1>
+      <p>To be able to use most modules, you need to reference them in your script.  This is done with the <code>require()</code> function.</p>
+      <pre><code class="javascript">const filesystem = require('fs');
+// Now you can use the Filesystem module referenced by variable name "filesystem"
+      </code></pre>
+
+      <div class="notes">
+      </div>
+  </div>
+
+  <div id="fs" class="step slide" data-rel-x="2200" data-rel-y="0">
+    <h1><code>fs</code> - Filesystem</h1>
+    <p>The <code>fs</code> or "File System" module provides an interface to the computers file system.  As usual, we cover only a small subset of functionality here.  And, we're starting with only synchronous functions.  *nix based naming</p>
+    <ol>
+      <li><code>fs.existsSync(file)</code> - check if file exists</li>
+      <li><code>fs.writeFileSync(file, data)</code> - write "data" to file</li>
+      <li><code>fs.readFileSync(file)</code> - read file data into variable</li>
+      <li><code>fs.readdirSync(dir)</code> - read contents of dir into an array</li>
+      <li><code>fs.renameSync(file, newfile)</code> - rename file to newfile</li>
+      <li><code>fs.rmSync(file)</code> - 'rm' (delete) file</li>
+    </ol>
+
+    <div class="notes">
+    </div>
+</div>
+
+
+<div id="process" class="step slide" data-rel-x="2200" data-rel-y="0">
+  <h1><code>process</code></h1>
+  <p>The <code>process</code> module gives you access to the current process.  Process is a global object - no require() needed.  *nix based naming.</p>
+  <ol>
+    <li><code>.cwd()</code> - Current working directory</li>
+    <li><code>.chdir(dir)</code> - Change to directory dir</li>
+    <li><code>.env</code> - Environment variables</li>
+    <li><code>.pid</code> - Current process ID</li>
+    <li><code>.platform</code> - Current platform</li>
+    <li><code>.exit(code)</code> - Exit process with specified return code</li>
+  </ol>
+
+  <div class="notes">
+  </div>
+</div>
+
+<div id="os" class="step slide" data-rel-x="2200" data-rel-y="0">
+  <h1><code>os</code> - Operating System</h1>
+  <p>The <code>os</code> module provides information about the operating system.</p>
+  <ol>
+    <li><code>os.arch()</code> - Current OS architecture</li>
+    <li><code>os.platform()</code> - Current platform</li>
+    <li><code>os.totalmem()</code> - Total memory available (bytes)</li>
+    <li><code>os.freemem()</code> - Free memory available (bytes)</li>
+    <li><code>os.homedir()</code> - Current user's home directory</li>
+    <li><code>os.cpus()</code> - List of CPUs and properties of them</li>
+  </ol>
+
+  <div class="notes">
+  </div>
+</div>
+
+
+<div id="zlib" class="step slide" data-rel-x="2200" data-rel-y="0">
+  <h1>ZLib</h1>
+  <br /><br />
+  <p>ZLib is a core module that provides compression and decompression functionality. It only supports GZip, Deflate, and Brotli protocols. So, while there is an unzip() function, this does not support the "zip" compression algorithm. </p>
+
+  <div class="notes">
+  </div>
+</div>
+
+<div id="zlib-2" class="step slide" data-rel-x="2200" data-rel-y="0">
+  <h1>ZLib Functions</h1>
+  <ol>
+    <li><code>zlib.gzipSync()</code> - sync compression using GZip</li>
+    <li><code>zlib.gunzipSync()</code> - sync decompression using GZip</li>
+    <li><code>zlib.brotliCompressSync()</code> - sync Brotli compression</li>
+    <li><code>zlib.brotliDecompressSync()</code> - sync Brotli decompression</li>
+    <li><code>zlib.deflateSync()</code> - sync Deflate compression</li>
+    <li><code>zlib.inflateSync()</code> - sync Deflate (Inflate) decompression</li>
+  </ol>
+
+  <div class="notes">
+  </div>
+</div>
+
+<div id="streams-http" class="step slide" data-rel-x="2200" data-rel-y="0">
+  <h1>Streams and HTTP/S</h1>
+  <br />
+  <p>Streams and HTTP/S are part of the core modules as well.  However, it's hard to talk about HTTP/S without first talking about asynchronous programming so we'll revisit HTTP/S in that lesson.</p>
+  <p>Streams are extremely powerful and efficient.  For that reason, we'll dedicate an entire future lesson to discussion of them.</p>
+
+  <div class="notes">
+  </div>
+</div>
+
+
+    <!-- This last, empty "slide" is set to be very large using the data-scale attribute, 
+         so that it covers all the other slides you just saw. 
+         It's a common way of zooming out at the end, to show the whole presentation.
+         In CSS, we set pointer-events:none to make this slide non-clickable. 
+         It makes a difference at least for SVG content, such as the mermaid diagram. -->
+    <div id="overview" class="step" data-x="4500" data-y="1500" data-scale="10" style="pointer-events: none;">
+    </div>
+</div>
+
+<!--
+    Add navigation-ui controls: back, forward and a select list.
+    Add a progress indicator bar (current step / all steps)
+    Add the help popup plugin
+-->
+<div id="impress-toolbar"></div>
+
+<div class="impress-progressbar"><div></div></div>
+<div class="impress-progress"></div>
+
+<div id="impress-help"></div>
+
+<!-- Extra modules
+     Load highlight.js, mermaid.js, markdown.js and MathJax.js from extras.
+     If you're curious about details, these are initialized in src/plugins/extras/extras.js 
+<script type="text/javascript" src="../../resources/impress.js/extras/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mermaid/mermaid.min.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/markdown/markdown.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+-->
+<link rel="stylesheet" href="../../resources/highlight.js/styles/darcula.css">
+<script type="text/javascript" src="../../resources/highlight.js/highlight.pack.js"></script>
+
+<!--
+    To make all described above really work, you need to include impress.js in the page.
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. 
+-->
+<script type="text/javascript" src="../../resources/impress.js/js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
