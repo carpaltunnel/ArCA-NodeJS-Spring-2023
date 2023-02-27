@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Slides</title>
+
+    <!-- This file contains common styles for example presentations. -->
+    <link href="../../resources/impress.js/css/impress-common.css" rel="stylesheet" />   
+    <!--
+        This file contains styles specific for this example presentation. 
+    -->
+    <link href="../../resources/impress.js/css/classic-slides.css" rel="stylesheet" />
+    
+</head>
+
+<body class="impress-not-supported">
+<!--
+    This fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    This is the core element used by impress.js: the wrapper for your presentation steps. 
+    In this element all the impress.js magic happens.
+    
+    data-transition-duration sets the time in microseconds that is used for the
+    animation when transtitioning between slides.
+    
+    The width, height, scale and perspective options define a target screen size that you should
+    design your CSS against. impress.js will automatically scale all content to different screen
+    sizes. See DOCUMENTATION.md for details. Below, I have targeted full HD screen resolution.
+    
+    data-autoplay can be used to set the time in seconds, after which presentation
+    automatically moves to next slide. It can also be set individually for each
+    slide, but here we just set a common duration for all slides.
+-->
+<div id="impress"
+    data-transition-duration="1000"
+
+    data-width="1920"
+    data-height="1080"
+    data-max-scale="3"
+    data-min-scale="0"
+    data-perspective="1000"
+>
+
+    <!--
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+        
+        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+        This step is auto-assigned the id "step-1". You can also use `#step-1` in a link, to 
+        point directly to this particular step.
+        
+        Positioning information is passed through data-* attributes.
+        
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'. It will not 
+        be rotated or scaled.
+        
+        The "step" class is what *must* be used for every "slide". In this example we also use the "slide"
+        class, which adds a rectangle with some background and makes this presentation look like a traditional
+        powerpoint slide show. The "slide" class is entirely optional and indeed you wouldn't use it for
+        your cooler impress.js presentations.
+    -->
+    <div id="title" class="step slide title" data-x="-2200" data-y="-3000">
+        <h1>Events and Callbacks</h1>
+        <br /><br /><br />
+        <p>Our first forray into asynchronous programming...</p>
+        <br /><br />
+        <p>Event handlers and Callbacks are blocks of code that will be triggered by other "events". They are the beginnings of asynchronous programming because they allow us to define code that will execute at an unknown time in the future or that may never execute at all. While events are still commonly used, callbacks can generally be considered as deprecated in favor of Promises and should be avoided if at all possible - you'll see why very soon.</p>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="callbacks" class="step slide" data-rel-x="2200" data-rel-y="0">
+      <h1>Callbacks</h1>
+      <p>Similar to Events, Callbacks are blocks of code that will execute when "something" else happens. Dissimilar to events, callbacks are functions that are passed to other functions to be invoked when the parent function completes.</p>
+      <pre><code class="javascript">const cbFunction = () => console.log('this is a named cb');
+
+setInterval(() => {
+    console.log('this is an anonymous cb');
+}, 5000);
+
+setInterval(cbFunction, 2000); // No parentheses!
+      </code></pre>
+
+      <div class="notes">
+      </div>
+  </div>
+
+  <div id="callback-hell-1" class="step slide" data-rel-x="2200" data-rel-y="0">
+    <h1>Callback Hell</h1>
+    <p>Simple enough, right? But, what if you needed to do real work? Let's say you need to accomplish the following and each step is an asynchronous call :</p>
+    <ol>
+        <li>Fetch a username from a secret store</li>
+        <li>Fetch a password from a secret store</li>
+        <li>Use username/password to call an API to retrieve initial data</li>
+        <li>Post that data to a separate API and retrieve the results</li>
+        <li>Store the results in a database</li>
+        <li>Notify another service that the work is complete</li>
+    </ol>
+
+    <div class="notes">
+    </div>
+</div>
+
+<div id="callback-hell-2" class="step slide" data-rel-x="2200" data-rel-y="0">
+    <h1>Callback Hell</h1>
+    <p>Welcome to Thunderdome...</p>
+    <pre><code class="javascript">fetchUsername(userService, (username) => {
+    fetchPassword(passwordService, username, (password) => {
+        callInitialAPI(url1, username, password, (initialResults) => {
+            postInitialData(url2, initialResults, (secondaryResults) => {
+                storeResultsInDb(secondaryResults, (dbResult) => {
+                    notifyOfCompletion(dbResults, (notifyResults) => {
+                        console.log('All done!');
+                    });
+                });
+            });
+        });
+    });
+});</code></pre>
+
+    <div class="notes">
+    </div>
+</div>
+
+<div id="events" class="step slide" data-rel-x="2200" data-rel-y="0">
+  <h1>Events</h1>
+  <br />
+  <p>An "event" is something happens, defined by the code or module that will be emitting the event.</p>
+  <br />
+  <p>An easy example would be when an email server receives an email, that event may trigger an alert in your browser/client to notify you that you have new mail.</p>
+
+  <div class="notes">
+  </div>
+</div>
+
+
+<div id="event-listeners-add" class="step slide" data-rel-x="2200" data-rel-y="0">
+  <h1>Event Listeners (Adding)</h1>
+  <p>Event listeners are consumers of events that are triggered when the event is emitted.  There may be multiple listeners per event.  <strong>Note</strong>: the node process survives as long as there are emitters/listeners</p>
+  <pre><code class="javascript">const fs = require('fs');
+const testFile = './test.txt';
+
+// "watch" the testFile
+const watcher = fs.watch(testFile);
+
+// Add listener / event handler for the 'change' event - anonymous function style
+watcher.on('change', (event, filename) => {
+    console.log(`Something happened to file : ${filename}.  The event was : ${event}.`);
+});</code></pre>
+
+  <div class="notes">
+  </div>
+</div>
+
+
+<div id="event-listeners-remove" class="step slide" data-rel-x="2200" data-rel-y="0">
+  <h1>Event Listeners (Removing)</h1>
+  <p>The opposite of adding a listener with <code>.on('event')</code> is to remove one with <code>.off('event')</code>.  Use named functions.</p>
+  <pre><code class="javascript">const fs = require('fs');
+const testFile = './test.txt';
+
+const changeHandler = (event, filename) => {
+    console.log(`Something happened to file : ${filename}.  The event was : ${event}.`);
+    watcher.off('change', changeHandler);
+}
+
+const watcher = fs.watch(testFile);
+
+watcher.on('change', changeHandler);</code></pre>
+
+  <div class="notes">
+  </div>
+</div>
+
+<div id="event-listeners-once" class="step slide" data-rel-x="2200" data-rel-y="0">
+    <h1>Single Use Event Listeners</h1>
+    <p>While .on() will execute every time a defined event occurs, you can also use .once() to execute your handler code only one time. After execution, the listener is automatically removed but the emitter remains.</p>
+    <pre><code class="javascript">const fs = require('fs');
+const testFile = './test.txt';
+const changeHandler = (event, filename) => {
+    console.log(`Something happened to file : ${filename}.  The event was : ${event}.`);
+}
+
+const watcher = fs.watch(testFile);
+
+// Add a "once" listener / event handler for the 'change' event - named function style
+watcher.once('change', changeHandler);</code></pre>
+  
+    <div class="notes">
+    </div>
+  </div>
+
+  <div id="event-emitters" class="step slide" data-rel-x="2200" data-rel-y="0">
+    <h1>Event Emitters</h1>
+    <p>Event Emitters are the opposite of listeners. Emitters are what generate the events that listeners consume and handle.</p>
+    <pre><code class="javascript">const EventEmitter = require('events');
+// Create a new EventEmitter
+const emitter = new EventEmitter();
+
+emitter.on('5-second-tick', (event) => {
+    console.log(`5-second-tick event triggered with value : ${event}`);
+});
+// emit an event every 5 seconds
+setInterval(() => {
+    emitter.emit('5-second-tick', 'It'\s been 5 seconds...');
+}, 5000);</code></pre>
+  
+    <div class="notes">
+    </div>
+  </div>
+
+  <div id="http-protocol" class="step slide" data-rel-x="2200" data-rel-y="0">
+    <h1>HTTP</h1>
+    <p>HTTP is the protocol that keeps what we generally view as the "internet" moving.  It's a client/server protocol that allows us to make requests
+        to a remote service and receive a response.
+    </p>
+    <br />
+    <p>Rather than copying everything here, let's look at MDN's <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">HTTP Protocol Guide</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP Request Methods Doc</a>.
+    </p>
+  
+    <div class="notes">
+    </div>
+  </div>
+
+  <div id="http-code" class="step slide" data-rel-x="2200" data-rel-y="0">
+    <h1>HTTP Revisited</h1>
+    <p>The HTTP/S core modules let us make HTTP and HTTPS requests.</p>
+    <pre><code class="javascript">const http = require('http');
+http.get('http://nodejs.org/dist/index.json', (res) => {
+    if (res.statusCode !== 200) {
+        console.log(`Error : Status code ws ${res.statusCode}`);
+        res.resume();
+        return;
+    }
+    
+    res.setEncoding('utf8');
+    let rawData = '';
+    res.on('data', (chunk) => { rawData += chunk; });
+    res.on('end', () => console.log(rawData));
+});</code></pre>
+  
+    <div class="notes">
+    </div>
+  </div>
+
+  <div id="lab" class="step slide" data-rel-x="2200" data-rel-y="0">
+    <h1>Lab</h1>
+    <p>TODO : Insert lab</p>
+    <pre><code class="javascript">
+        
+    </code></pre>
+  
+    <div class="notes">
+    </div>
+  </div>
+
+
+
+    <!-- This last, empty "slide" is set to be very large using the data-scale attribute, 
+         so that it covers all the other slides you just saw. 
+         It's a common way of zooming out at the end, to show the whole presentation.
+         In CSS, we set pointer-events:none to make this slide non-clickable. 
+         It makes a difference at least for SVG content, such as the mermaid diagram. -->
+    <div id="overview" class="step" data-x="4500" data-y="1500" data-scale="10" style="pointer-events: none;">
+    </div>
+</div>
+
+<!--
+    Add navigation-ui controls: back, forward and a select list.
+    Add a progress indicator bar (current step / all steps)
+    Add the help popup plugin
+-->
+<div id="impress-toolbar"></div>
+
+<div class="impress-progressbar"><div></div></div>
+<div class="impress-progress"></div>
+
+<div id="impress-help"></div>
+
+<!-- Extra modules
+     Load highlight.js, mermaid.js, markdown.js and MathJax.js from extras.
+     If you're curious about details, these are initialized in src/plugins/extras/extras.js 
+<script type="text/javascript" src="../../resources/impress.js/extras/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mermaid/mermaid.min.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/markdown/markdown.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+-->
+<link rel="stylesheet" href="../../resources/highlight.js/styles/darcula.css">
+<script type="text/javascript" src="../../resources/highlight.js/highlight.pack.js"></script>
+
+<!--
+    To make all described above really work, you need to include impress.js in the page.
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. 
+-->
+<script type="text/javascript" src="../../resources/impress.js/js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
