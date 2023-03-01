@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Slides</title>
+
+    <!-- This file contains common styles for example presentations. -->
+    <link href="../../resources/impress.js/css/impress-common.css" rel="stylesheet" />   
+    <!--
+        This file contains styles specific for this example presentation. 
+    -->
+    <link href="../../resources/impress.js/css/classic-slides.css" rel="stylesheet" />
+    
+</head>
+
+<body class="impress-not-supported">
+<!--
+    This fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    This is the core element used by impress.js: the wrapper for your presentation steps. 
+    In this element all the impress.js magic happens.
+    
+    data-transition-duration sets the time in microseconds that is used for the
+    animation when transtitioning between slides.
+    
+    The width, height, scale and perspective options define a target screen size that you should
+    design your CSS against. impress.js will automatically scale all content to different screen
+    sizes. See DOCUMENTATION.md for details. Below, I have targeted full HD screen resolution.
+    
+    data-autoplay can be used to set the time in seconds, after which presentation
+    automatically moves to next slide. It can also be set individually for each
+    slide, but here we just set a common duration for all slides.
+-->
+<div id="impress"
+    data-transition-duration="1000"
+
+    data-width="1920"
+    data-height="1080"
+    data-max-scale="3"
+    data-min-scale="0"
+    data-perspective="1000"
+>
+
+    <!--
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+        
+        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+        This step is auto-assigned the id "step-1". You can also use `#step-1` in a link, to 
+        point directly to this particular step.
+        
+        Positioning information is passed through data-* attributes.
+        
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'. It will not 
+        be rotated or scaled.
+        
+        The "step" class is what *must* be used for every "slide". In this example we also use the "slide"
+        class, which adds a rectangle with some background and makes this presentation look like a traditional
+        powerpoint slide show. The "slide" class is entirely optional and indeed you wouldn't use it for
+        your cooler impress.js presentations.
+    -->
+    <div id="title" class="step slide title" data-x="-2200" data-y="-3000">
+        <h1><a href="https://www.npmjs.com/">NPM (Node Package Manager)</a></h1>
+        <br /><br />
+        <br /><br /><br /><br />
+        <p>NPM gives us an easy way to create, install, manage, and share code.  With over one million packages, it's one of the largest sources of third party libraries in the world. </p>
+
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="init" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1><code>npm init</code></h1>
+
+        <p><code>npm init</code> is used to initialize a new NPM project.  The initialization script will interactively ask for information about your new project, though all of it is optional.  Once complete, a <code>package.json</code> will be created.</p>
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="package.json" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1><code>package.json</code></h1>
+        <p><code>package.json</code> is the core of a NPM project and defines dependencies, versions, and tasks.</p>
+
+        <pre><code class="javascript">{
+    "name": "testing-npm",
+    "version": "0.0.1",
+    "description": "Just a test",
+    "main": "index.js",
+    "dependencies": {
+        "lodash": "^4.17.21"
+    },
+    "devDependencies": {}
+}</code></pre>
+        <div class="notes">
+        </div>
+    </div>
+
+
+    <div id="npm-install" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>npm install</h1>
+
+        <p>
+            Executing <code>npm install package-name</code> will download "package-name" from NPM, install it locally, and add it to the 
+            package.json dependencies list.  Be sure to type the package name correctly...
+        </p>
+        <div class="notes">
+        </div>
+    </div>
+
+
+    <div id="node_modules" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>node_modules</h1>
+
+        <p>After running <code>npm install</code>, the package will be installed into a local folder named <code>node_modules</code>.  You can dig around in this directory for research and debugging
+        but you should never commit it.</p>
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="dependencies" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>dependencies & devDependencies</h1>
+
+        <p>
+            When you install a dependency it is automatically added to the package.json "dependencies" object.  You can 
+            also install a "development" dependency with <code>npm install --save-dev package-name</code>.  This will add 
+            the package to the "devDependencies" object of package.json.
+        </p>
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="global-installs" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Global Installs</h1>
+
+        <p>
+            While not super common, you can also install NPM packages globally / system-wide.  <code>npm install -g package-name</code> will install the 
+            package for the entire system.  This is most commonly used for utility libraries like Grunt.
+        </p>
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="versions" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h2>Dependency Versions</h2>
+        <ol>
+            <li>^ : Accept any version update that does not change the leftmost non-zero number.</li>
+            <li>~ : Accept only "patch" updates (1.1.*)</li>
+            <li>> : Accept any version higher than the one specified</li>
+            <li>>= : Accept any version equal to or higher than the one specified</li>
+            <li><= : Accept any version equal or lower to the one specified</li>
+            <li>< : Accept any version lower than the one specified</li>
+            <li>= : Accept the exact version and nothing else</li>
+            <li>- : Accept a range of versions. Example: 1.1.0 - 1.5.5</li>
+            <li>|| : Accept a combination of sets (logical OR). Example: < 1.0 || > 1.5</li>
+        </ol>
+
+        
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="updates" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Updates</h1>
+        <br /><br />
+        <p><code>npm update</code> ... not much else to say.</p>
+        <div class="notes">
+        </div>
+    </div>
+
+    <div id="package-lock.json" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1><code>package-lock.json</code></h1>
+
+        <p>package-lock.json is automatically generated by NPM whenever node_modules or package.json are changed.  It documents the exact versions of all dependencies (and their dependencies) that were installed so subsequent builds by other users can be exactly the same.  You should commit package.json and package-lock.json to your Git repo.</p>
+        <div class="notes">
+        </div>
+    </div>
+
+
+    <div id="git-dependencies" class="step slide" data-rel-x="2200" data-rel-y="0">
+        <h1>Git Dependencies</h1>
+        <p>If you have an internal dependency that can't be published to NPM, you can reference a Git repo directly.</p>
+
+        <pre><code class="javascript">"my-package": "git+https://my-git-repo.mydomain.com/projects/my-package#v1.1"</code></pre>
+        <div class="notes">
+        </div>
+    </div>
+
+    <!-- This last, empty "slide" is set to be very large using the data-scale attribute, 
+         so that it covers all the other slides you just saw. 
+         It's a common way of zooming out at the end, to show the whole presentation.
+         In CSS, we set pointer-events:none to make this slide non-clickable. 
+         It makes a difference at least for SVG content, such as the mermaid diagram. -->
+    <div id="overview" class="step" data-x="4500" data-y="1500" data-scale="10" style="pointer-events: none;">
+    </div>
+</div>
+
+<!--
+    Add navigation-ui controls: back, forward and a select list.
+    Add a progress indicator bar (current step / all steps)
+    Add the help popup plugin
+-->
+<div id="impress-toolbar"></div>
+
+<div class="impress-progressbar"><div></div></div>
+<div class="impress-progress"></div>
+
+<div id="impress-help"></div>
+
+<!-- Extra modules
+     Load highlight.js, mermaid.js, markdown.js and MathJax.js from extras.
+     If you're curious about details, these are initialized in src/plugins/extras/extras.js 
+<script type="text/javascript" src="../../resources/impress.js/extras/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mermaid/mermaid.min.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/markdown/markdown.js"></script>
+<script type="text/javascript" src="../../resources/impress.js/extras/mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+-->
+<link rel="stylesheet" href="../../resources/highlight.js/styles/darcula.css">
+<script type="text/javascript" src="../../resources/highlight.js/highlight.pack.js"></script>
+
+<!--
+    To make all described above really work, you need to include impress.js in the page.
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. 
+-->
+<script type="text/javascript" src="../../resources/impress.js/js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
